@@ -44,7 +44,7 @@
               -->
               <NuxtImg
                 class="h-6 w-6"
-                src="/logos/social.svg"
+                src="/logos/Social.svg"
                 alt="GitHub"
                 placeholder
               />
