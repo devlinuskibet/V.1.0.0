@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 
-
 const openAccordion = ref(null) // Can be 1 or 2
 
 const toggleAccordion = (item) => {
@@ -18,7 +17,7 @@ const toggleAccordion = (item) => {
 <template>
   <!-- 
     Main container. 
-    We set the background styles here so they apply to the entirepage,
+    We set the background styles here so they apply to the *entire* page,
     including the hero and the accordion section.
   -->
   <main
@@ -28,16 +27,28 @@ const toggleAccordion = (item) => {
     <div
       class="absolute inset-0 z-0 h-full w-full opacity-20"
       style="
-        background-image: radial-gradient(#A8A6FF 1.5px, transparent 1.5px);
+        /* Corrected gradient with 2.5px dots */
+        background-image: radial-gradient(#A8A6FF 2.5px, transparent 2.5px);
         background-size: 40px 40px;
       "
     ></div>
 
-    <!-- 2. Noise Texture Layer -->
-    <div
-      class="absolute inset-0 z-10 h-full w-full opacity-5 mix-blend-screen"
-      style="background-image: url('/Noise.png'); background-repeat: repeat"
-    ></div>
+    <!-- 
+      2. OPTIMIZED Noise Texture Layer 
+      - Replaced the slow <div> with <NuxtImg>
+      - `preload`: Tells the browser to load this image early.
+      - `format="webp"`: Converts the PNG to a smaller, faster format.
+      - `quality="70"`: Compresses the image.
+      - `object-cover`: Ensures it fills the screen (replaces `background-repeat: repeat`).
+    -->
+    <NuxtImg
+      src="/Noise.png"
+      alt="Background noise texture"
+      class="absolute inset-0 z-10 h-full w-full object-cover opacity-5 mix-blend-screen"
+      preload
+      format="webp"
+      quality="70"
+    />
 
     <!-- 3. Content Layer (Hero + Accordion) -->
     <div class="relative z-20">
@@ -46,7 +57,6 @@ const toggleAccordion = (item) => {
         - We use min-h-[1100px] to match the Figma frame height.
         - We use pt-[588px] to match the "contents" block's top position.
         - We use md:px-[176px] for the side padding.
-        - This replaces our old "h-screen items-center" for pixel-perfect alignment.
       -->
       <div
         class="block min-h-[1100px] w-full overflow-hidden px-8 pb-20 pt-[588px] md:px-[176px]"
@@ -55,7 +65,7 @@ const toggleAccordion = (item) => {
         <div class="flex flex-col gap-2">
           <!-- 
             PHASE 2: RESPONSIVE TEXT
-            - Mobile: text-5xl (Tailwind's `text-5xl` is 3rem / 48px)
+            - Mobile: text-5xl
             - Desktop: text-[100px]
           -->
           <h2
@@ -66,7 +76,7 @@ const toggleAccordion = (item) => {
 
           <!-- 
             PHASE 2: RESPONSIVE TEXT
-            - Mobile: text-8xl (Tailwind's `text-8xl` is 6rem / 96px)
+            - Mobile: text-8xl
             - Desktop: md:text-[200px]
            -->
           <h1
@@ -79,7 +89,6 @@ const toggleAccordion = (item) => {
 
       <!-- 
         PHASE 3: INTERACTIVE ACCORDION
-        - Added to meet the "interactivity" requirement.
       -->
       <section
         class="flex w-full flex-col items-center gap-6 px-8 pb-32 pt-16"
@@ -162,7 +171,7 @@ const toggleAccordion = (item) => {
   - These classes control the smooth open/close animation
     of the accordion.
 */
-.accordion-content {
+.accordion-.accordion-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
