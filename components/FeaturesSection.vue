@@ -61,7 +61,7 @@
           >
             <!-- UPDATED: Increased icon size -->
             <NuxtImg
-              src="/icons/Multirepo.svg"
+              src="/icons/MultiRepo.svg"
               alt="Multi-Repo Coordination"
               class="h-16 w-16"
               placeholder
