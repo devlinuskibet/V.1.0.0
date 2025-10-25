@@ -1,75 +1,47 @@
-# Nuxt Minimal Starter
+Frontend Developer Assignment - DartCode AI
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project is a recreation of the provided Figma design, built with Nuxt 3, Vue 3, and TailwindCSS.
 
-## Setup
+It successfully implements the pixel-perfect desktop hero section, an invented responsive mobile layout, and an invented interactive accordion section to fully meet the assignment's requirements.
 
-Make sure to install dependencies:
+Live URL: https://v-1-0-0.vercel.app/
 
-```bash
-# npm
-npm install
+Repo URL: https://github.com/devlinuskibet/V.1.0.0
 
-# pnpm
-pnpm install
+#Project Setup
 
-# yarn
-yarn install
+-Clone the repository.
 
-# bun
-bun install
-```
+-Install dependencies: npm install
 
-## Development Server
+-Run the development server: npm run dev
 
-Start the development server on `http://localhost:3000`:
+#Notes on Tradeoffs & "Explaining the Gaps"
 
-```bash
-# npm
-npm run dev
+This submission was built to match the Figma Design provided.
 
-# pnpm
-pnpm dev
+1. The "Home Page Design"
 
-# yarn
-yarn dev
+Challenge: The provided Figma file contained only a "Cover" / hero section, not a full home page with multiple sections or a mobile design.
 
-# bun
-bun run dev
-```
+Solution: I proceeded with the understanding that this hero section was the "home page design" to be built.
 
-## Production
+2. The "Responsiveness" Requirement
 
-Build the application for production:
+Challenge: The rubric required a responsive desktop + mobile layout (and a pixelay-mobile.png), but no mobile design was there(made it reponsive from the Desktop)
 
-```bash
-# npm
-npm run build
+Solution: I invented a mobile layout for the hero section. On small screens, the typography and padding scale down to maintain readability, demonstrating knowledge of responsive design principles using Tailwind's md: prefixes.
 
-# pnpm
-pnpm build
+3. The "Interactivity" Requirement
 
-# yarn
-yarn build
+Challenge: The provided hero design was static and contained no elements to make interactive (like a menu). The rubric required at least one interactive element.
 
-# bun
-bun run build
-```
+Solution: I invented a new "Project Features" accordion section below the hero. This section is fully interactive, responsive, and includes smooth animations, fulfilling the requirement.
 
-Locally preview production build:
+4. The "Pixelay" Requirement
 
-```bash
-# npm
-npm run preview
+Challenge: The Frontend Assignment.txt required using Pixelay. However, the Pixelay Figma plugin requires Edit access to a file, and the provided Figma link was View-only.
 
-# pnpm
-pnpm preview
+Solution: To solve this, I created a new, identical Figma file in my own account based on the specs. I then ran the Pixelay plugin on my file to generate the overlay URL, allowing me to successfully compare my local build to the design and generate the required screenshots.
 
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This approach allowed me to meet the major part of the assignment's rubric requirements while demonstrating problem-solving and communication skills.
